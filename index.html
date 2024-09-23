@@ -35,7 +35,10 @@
         id="markerA"
       >
         </a-marker>
-            <script>
+            
+      <a-entity camera></a-entity>
+    </a-scene>
+    <script>
       const marker = document.querySelector('a-marker');
       let markerVisible = false;
       const redirectDelay = 3000; // 3 seconds
@@ -57,7 +60,5 @@
         clearTimeout(redirectTimeout);
       });
     </script>
-      <a-entity camera></a-entity>
-    </a-scene>
   </body>
 </html>
