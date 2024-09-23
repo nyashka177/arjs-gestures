@@ -37,23 +37,13 @@
     <script>
       const marker = document.querySelector('markerA');
       let markerVisible = false;
-      const redirectDelay = 3000; // 3 seconds
-      let redirectTimeout;
 
       marker.addEventListener('markerFound', () => {
         console.log('Marker found');
         markerVisible = true;
-        redirectTimeout = setTimeout(() => {
-          if (markerVisible) {
+        if (markerVisible) {
             window.location.href = 'https://genshin-impact.fandom.com/wiki/Dottore'; // Replace with your desired URL
           }
-        }, redirectDelay);
-      });
-
-      marker.addEventListener('markerLost', () => {
-        console.log('Marker lost');
-        markerVisible = false;
-        clearTimeout(redirectTimeout);
       });
     </script>
   </body>
