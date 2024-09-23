@@ -23,29 +23,27 @@
       id="scene"
     >
       <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
-        >
-        </a-asset-item>
+        <img id="bowser" src="fft352_mf22484344.png" >
       </a-assets>
 
-      <a-marker
-        preset="hiro"
+      <a-marker preset="pattern"
+        type="pattern"
+        url="pattern-860c75b7ea9ab5278fe0f262d54ad298.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
       >
-        <a-entity
+        <a-image
           id="bowser-model"
-          gltf-model="#bowser"
+          src="#bowser"
           position="0 0 0"
-          scale="0.05 0.05 0.05"
+          scale="0.5 0.5 0.5"
+          rotation="270 0 0"
           class="clickable"
           gesture-handler
         >
-        </a-entity>
+        </a-image>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
