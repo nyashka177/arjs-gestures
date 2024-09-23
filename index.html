@@ -34,17 +34,29 @@
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
       >
-        <a-image
-          id="bowser-model"
-          src="#bowser"
-          position="0 0 0"
-          scale="0.5 0.5 0.5"
-          rotation="270 0 0"
-          class="clickable"
-          gesture-handler
-        >
-        </a-image>
-      </a-marker>
+        </a-marker>
+            <script>
+      const marker = document.querySelector('a-marker');
+      let markerVisible = false;
+      const redirectDelay = 3000; // 3 seconds
+      let redirectTimeout;
+
+      marker.addEventListener('markerFound', () => {
+        console.log('Marker found');
+        markerVisible = true;
+        redirectTimeout = setTimeout(() => {
+          if (markerVisible) {
+            window.location.href = 'https://genshin-impact.fandom.com/wiki/Dottore'; // Replace with your desired URL
+          }
+        }, redirectDelay);
+      });
+
+      marker.addEventListener('markerLost', () => {
+        console.log('Marker lost');
+        markerVisible = false;
+        clearTimeout(redirectTimeout);
+      });
+    </script>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
