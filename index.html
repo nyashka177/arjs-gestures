@@ -22,10 +22,6 @@
       gesture-detector
       id="scene"
     >
-      <a-assets>
-        <img id="bowser" src="kitten.png" >
-      </a-assets>
-
       <a-marker preset="pattern"
         type="pattern"
         url="pattern-0KMjsLq5E2c.patt"
@@ -39,7 +35,7 @@
       <a-entity camera></a-entity>
     </a-scene>
     <script>
-      const marker = document.querySelector('a-marker');
+      const marker = document.querySelector('markerA');
       let markerVisible = false;
       const redirectDelay = 3000; // 3 seconds
       let redirectTimeout;
