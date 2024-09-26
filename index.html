@@ -34,17 +34,5 @@
             
       <a-entity camera></a-entity>
     </a-scene>
-    <script>
-      const marker = document.querySelector('markerA');
-      let markerVisible = false;
-
-      marker.addEventListener('markerFound', () => {
-        console.log('Marker found');
-        markerVisible = true;
-        if (markerVisible) {
-            window.location.href = 'https://genshin-impact.fandom.com/wiki/Dottore'; // Replace with your desired URL
-          }
-      });
-    </script>
   </body>
 </html>
