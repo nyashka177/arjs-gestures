@@ -13,39 +13,30 @@
     <script src="gesture-handler.js"></script>
   </head>
 
-  <script>
+
+<script>
   AFRAME.registerComponent('markerhandler', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
-        // redirect to custom URL
-        window.location = 'https://genshin-impact.fandom.com/wiki/Dottore';
-      });
+        // redirect to custom URL e.g. google.com
+        window.location = 'https://www.google.com/';
+      })
+    }
   });
-  },
 </script>
 
   <body>
     <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
-    >
-      <a-assets>
-      </a-assets>
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
-      <a-marker preset="pattern"
-        type="pattern"
-        url="pattern-0KMjsLq5E2c.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
+    <a-marker markerhandler type='pattern' url="pattern-0KMjsLq5E2c.patt">
+        <a-box position='0 0.5 0' color="yellow"></a-box>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
   </body>
 </html>
