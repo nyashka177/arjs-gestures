@@ -18,7 +18,6 @@
   AFRAME.registerComponent('markerhandler', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
-        // redirect to custom URL
         window.location = 'https://github.com/AR-js-org/AR.js';
       });
   });
@@ -32,15 +31,10 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
-    <!-- we use cors proxy to avoid cross-origin problems -->
-    <!-- we use the trex image shown on the homepage of the docs -->
     <a-marker
       markerhandler
       type="pattern"
         url="pattern-6557f31f1326dd9eebbaf08841d2f13b--diy-gardening-camellia-japonica.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
     >
     </a-marker>
