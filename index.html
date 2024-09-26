@@ -13,58 +13,25 @@
     <script src="gesture-handler.js"></script>
   </head>
 
-  <body>
+   <body style="margin: 0; overflow: hidden;">
     <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
       vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-assets>
-        <img id="img1" src="kitten.png" >
-        <img id="img2" src="kitten2.png" >
-      </a-assets>
+      <a-camera gps-camera rotation-reader></a-camera>
 
-      <a-marker preset="pattern"
-        type="pattern"
-        url="pattern-6557f31f1326dd9eebbaf08841d2f13b--diy-gardening-camellia-japonica.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
+      <a-entity
+        gps-entity-place="latitude: 56.886991137476336; longitude: 60.58656270983479;"
+        scale="5 5 5"
       >
-        <a-image
-          src="#img1"
-          position="0 0 0"
-          scale="0.5 0.5 0.5"
+        <a-image src="kitten2.png"
+          scale="100 100 100"
           rotation="270 0 0"
-          class="clickable"
           gesture-handler
-        >
-        </a-image>
-      </a-marker>
-      
-       <a-marker preset="pattern"
-        type="pattern"
-        url="pattern-kttnpttrn.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
-        <a-image
-          src="#img2"
-          position="0 0 0"
-          scale="0.5 0.5 0.5"
-          rotation="270 0 0"
-          class="clickable"
-          gesture-handler
-        >
-        </a-image>
-      </a-marker>
-      <a-entity camera></a-entity>
+></a-image>
+      </a-entity>
     </a-scene>
   </body>
+
 </html>
