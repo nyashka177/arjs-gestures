@@ -18,11 +18,11 @@
   AFRAME.registerComponent('markerhandler', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
-        // redirect to custom URL e.g. google.com
-        window.location = 'https://www.google.com/';
-      })
-    }
+        // redirect to custom URL
+        window.location = 'https://github.com/AR-js-org/AR.js';
+      });
   });
+  },
 </script>
 
   <body>
@@ -30,12 +30,20 @@
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-
-    <a-marker markerhandler type='pattern' url="pattern-0KMjsLq5E2c.patt">
-        <a-box position='0 0.5 0' color="yellow"></a-box>
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <!-- we use cors proxy to avoid cross-origin problems -->
+    <!-- we use the trex image shown on the homepage of the docs -->
+    <a-marker
+      markerhandler
+      type="pattern"
+        url="pattern-0KMjsLq5E2c.patt"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
+    >
     </a-marker>
-
     <a-entity camera></a-entity>
   </a-scene>
   </body>
