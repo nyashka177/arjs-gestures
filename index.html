@@ -13,6 +13,17 @@
     <script src="gesture-handler.js"></script>
   </head>
 
+  <script>
+  AFRAME.registerComponent('markerhandler', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL
+        window.location = 'https://genshin-impact.fandom.com/wiki/Dottore';
+      });
+  });
+  },
+</script>
+
   <body>
     <a-scene
       arjs
@@ -23,7 +34,6 @@
       id="scene"
     >
       <a-assets>
-        <img id="bowser" src="kitten.png" >
       </a-assets>
 
       <a-marker preset="pattern"
@@ -34,16 +44,6 @@
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
       >
-        <a-image
-          id="bowser-model"
-          src="#bowser"
-          position="0 0 0"
-          scale="0.5 0.5 0.5"
-          rotation="270 0 0"
-          class="clickable"
-          gesture-handler
-        >
-        </a-image>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
